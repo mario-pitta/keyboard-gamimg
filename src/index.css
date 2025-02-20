@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  background: linear-gradient(to bottom, #5c94fc, #2860c4);
+  font-family: 'Press Start 2P', cursive;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +11,109 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.game-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 4px solid #e52521;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #5c94fc, #2860c4);
+  font-family: 'Press Start 2P', cursive;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.game-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 4px solid #e52521;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+}
+
+.key {
+  background: linear-gradient(to bottom, #ffd700, #ffb700);
+  border: 3px solid #c17f11;
+  border-radius: 10px;
+  color: #000;
+  font-size: 24px;
+  margin: 5px;
+  padding: 15px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 0 #8b5e00;
+}
+
+.key:active, .key.pressed {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #8b5e00;
+  background: linear-gradient(to bottom, #ffb700, #ffa500);
+}
+
+
+.mario-character.jump {
+  transform: translateY(-100px);
+}
+
+.mario-character {
+  width: 64px;
+  height: 64px;
+  background-image: url('./assets/sprites/mario-49314.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 20px;
+  left: 100px;
+  z-index: 100;
+}
+
+.block {
+  position: absolute;
+  top: 100px;
+  right: -100px;
+  background: linear-gradient(to bottom, #ffd700, #ffb700);
+  border: 3px solid #c17f11;
+  border-radius: 10px;
+  color: #000;
+  font-size: 24px;
+  padding: 15px;
+  animation: moveBlock 10s linear infinite;
+}
+
+.block.hit {
+  animation: disappear 0.3s forwards;
+}
+
+@keyframes moveBlock {
+  from {
+    right: -100px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes disappear {
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.score {
+  color: #e52521;
+  font-size: 24px;
+  margin: 20px 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
